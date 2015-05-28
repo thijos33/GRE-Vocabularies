@@ -11,7 +11,7 @@ from Tkinter import *
 heading = "\n\nLET'S PLAY A VOCABULARY GAME!\n-----------------------------"
 usage = """\nTIPS: \n----\nType 'def' to get the definition of any vocabulary.\n\
 Type 'hint' to get a hint for any vocabulary.\n\
-Type 'ex' or 'example' to get an example for a vocabulary's use. \n\
+Type 'ex', 'eg' or 'example' to get an example for a vocabulary's use. \n\
 Type 'quit' or 'exit' to leave the program at anytime.
 Type the definition starting with 'n ' (notice space) to\n     check the number of random vocabularies defined.\n\n"""
 
@@ -73,7 +73,7 @@ def is_hint(answer):
 
 # check if an example is requested
 def is_example(answer):
-  if answer.lower() in ['ex','example']:
+  if answer.lower() in ['ex', 'eg','example']:
     return True
   
 # Define again after seeing hint or example
@@ -292,6 +292,7 @@ def get_specific_vocabs(number):
 def print_definition(answer, word):
   global after_hint
   global after_example
+  global example_status
   global definition_status
   definition = gre_vocabs[word.lower()][1]
   example = gre_vocabs[word.lower()][2]
